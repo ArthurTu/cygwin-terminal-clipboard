@@ -93,7 +93,10 @@ Is coded according to protocol defined in `interprogram-paste-function'.
 NOT reentrant."
   (with-temp-buffer
     (let ((cygwin-clipboard (or (ctcm//get-clipboard-contents) ""))
-          (top-kill-ring (substring-no-properties (or (current-kill 0 t) ""))))
+          (top-kill-ring (if (null kill-ring)
+                             ""
+                             (substring-no-properties (or (current-kill 0 t) ""))
+)))
       (if (string= cygwin-clipboard top-kill-ring)
           nil
         cygwin-clipboard))))
