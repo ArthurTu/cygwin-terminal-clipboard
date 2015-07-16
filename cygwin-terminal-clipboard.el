@@ -32,6 +32,7 @@
 ;;
 ;;; Code:
 
+;;;###autoload
 (define-minor-mode cygwin-terminal-clipboard-mode
   "Toggle Cygwin Terminal Clipboard mode.
 
